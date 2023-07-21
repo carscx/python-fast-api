@@ -37,6 +37,11 @@ def generate_jwt_token(data):
     secret_key = "mysecretkey"  # Reemplaza esto con una clave secreta fuerte
     return jwt.encode(data, secret_key, algorithm="HS256")
 
+@app.get("/api/healthchecker")
+def healthchecker():
+    return {"status": "success", "message": "Integrate FastAPI Framework with Next.js"}
+
+
 @app.post("/api/login")
 def login(credentials: UserCredentials):
     current_username = credentials.username
